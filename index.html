@@ -330,10 +330,7 @@
                     <a href="#download-data" class="toc-h2 toc-link" data-title="Download Data">Download Data</a>
                   </li>
                   <li>
-                    <a href="#working-with-multiple-data-types" class="toc-h2 toc-link" data-title="Working with Multiple Data Types">Working with Multiple Data Types</a>
-                  </li>
-                  <li>
-                    <a href="#handling-specific-scenarios" class="toc-h2 toc-link" data-title="Handling Specific Scenarios">Handling Specific Scenarios</a>
+                    <a href="#working-with-multiple-data-types-amp-handling-specific-scenarios" class="toc-h2 toc-link" data-title="Working with Multiple Data Types &amp; Handling Specific Scenarios">Working with Multiple Data Types &amp; Handling Specific Scenarios</a>
                   </li>
               </ul>
           </li>
@@ -352,7 +349,7 @@
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the TRUEPrice™ API! This document describes how to interact with TRUEPrice™ API services to retrieve TLE product.</p>
 
-<p>Contact <a href="techsupport@truelightenergy.com">TLE technical support</a> for more information.</p>
+<p>Contact <strong><code>techsupport@truelightenergy.com</code></strong> for more information.</p>
 
 <ul>
 <li>Visit <a href="https://www.truelightenergy.com/contact">Our Website!</a></li>
@@ -362,8 +359,7 @@
 <li>Ensure you have <strong>Python 3</strong> installed.</li>
 <li>Install the requests library if it’s not already installed:
 <strong><code>pip install requests</code></strong><br></li>
-<li><p>You will need API credentials (email and password) to authenticate and obtain an access token for secure requests. </p></li>
-<li><p>Contact TLE technical support at <strong><code>techsupport@truelightenergy.com</code></strong> for more information.</p></li>
+<li>You will need API credentials (email and password) to authenticate and obtain an access token for secure requests. </li>
 </ul>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
@@ -401,16 +397,19 @@ You must replace <code>email & password </code> with your own credentials.
 <div class="highlight"><pre class="highlight python tab-python"><code><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">operating_day</span><span class="p">,</span> <span class="n">operating_day_end</span><span class="p">,</span> <span class="n">curve</span><span class="p">,</span> <span class="n">iso</span><span class="p">,</span> <span class="n">strip</span><span class="p">,</span> <span class="n">idcob</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
   <span class="n">url</span> <span class="o">=</span> <span class="s">"https://truepriceenergy.com/get_data"</span>
   <span class="n">querystring</span> <span class="o">=</span> 
-  <span class="p">{</span>
-    <span class="s">"start"</span><span class="p">:</span><span class="n">start_date</span><span class="p">,</span>
-    <span class="s">"end"</span><span class="p">:</span><span class="n">end_date</span><span class="p">,</span>
-    <span class="s">"curve_type"</span><span class="p">:</span> <span class="n">curve</span><span class="p">,</span>
-    <span class="s">"iso"</span><span class="p">:</span><span class="n">iso</span><span class="p">,</span>
-    <span class="s">"strip"</span><span class="p">:</span> <span class="n">strip</span><span class="p">,</span>
-    <span class="s">"idcob"</span><span class="p">:</span><span class="n">idcob</span><span class="p">,</span>
-    <span class="s">"type"</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span>
-    <span class="s">"operating_day"</span><span class="p">:</span><span class="n">operating_day</span><span class="p">,</span><span class="s">"operating_day_end"</span><span class="p">:</span><span class="n">operating_day_end</span>
-    <span class="p">}</span>
+      <span class="p">{</span>
+        <span class="s">"start"</span><span class="p">:</span><span class="n">start_date</span><span class="p">,</span>
+        <span class="s">"end"</span><span class="p">:</span><span class="n">end_date</span><span class="p">,</span>
+        <span class="s">"curve_type"</span><span class="p">:</span> <span class="n">curve</span><span class="p">,</span>
+        <span class="s">"iso"</span><span class="p">:</span><span class="n">iso</span><span class="p">,</span>
+        <span class="s">"strip"</span><span class="p">:</span> <span class="n">strip</span><span class="p">,</span>
+        <span class="s">"idcob"</span><span class="p">:</span><span class="n">idcob</span><span class="p">,</span>
+        <span class="s">"type"</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span>
+        <span class="s">"operating_day"</span><span class="p">:</span><span class="n">operating_day</span><span class="p">,</span>
+        <span class="s">"operating_day_end"</span><span class="p">:</span><span class="n">operating_day_end</span>
+
+      <span class="p">}</span>
+
   <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s">"Bearer </span><span class="si">{</span><span class="n">access_token</span><span class="si">}</span><span class="s">"</span><span class="p">}</span>
   <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
@@ -476,10 +475,7 @@ You must replace <code>email & password </code> with your own credentials.
 <td>Format for data retrieval (<code>&quot;csv&quot;</code>,<code>xlsx</code>, <code>&quot;json&quot;</code>).</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-</aside>
-<h2 id='working-with-multiple-data-types'>Working with Multiple Data Types</h2><div class="highlight"><pre class="highlight python tab-python"><code>
+<h2 id='working-with-multiple-data-types-amp-handling-specific-scenarios'>Working with Multiple Data Types &amp; Handling Specific Scenarios</h2><div class="highlight"><pre class="highlight python tab-python"><code>
 <span class="sb">`ERCOT`</span>
 <span class="c1">#Formatted Standardized Data
 </span><span class="n">energy_ercocot_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"ercot"</span><span class="p">,</span><span class="s">"standardized"</span><span class="p">,</span> <span class="s">"latestall"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
@@ -493,7 +489,6 @@ You must replace <code>email & password </code> with your own credentials.
 
 <span class="c1"># Unformated Unstandardized Data
 </span><span class="n">energy_isone_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"isone"</span><span class="p">,</span><span class="s">'unstandardized'</span><span class="p">,</span> <span class="s">"intradayonly"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
-
 
 <span class="sb">`NYISO`</span>
 <span class="c1">#Formatted Standardized Data
@@ -517,56 +512,12 @@ You must replace <code>email & password </code> with your own credentials.
 </span><span class="n">energy_pjm_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"pjm"</span><span class="p">,</span><span class="s">'unstandardized'</span><span class="p">,</span> <span class="s">"intradayonly"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
 
 </code></pre></div>
-<p>This endpoint retrieves curves based on Data Type.</p>
+<p>This endpoint retrieves curves based on Data Types, ISO&#39;s.</p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>Each data type can be formatted or unformatted, standardized or unstandardized and saved directly to a desired file format( csv,xlsx,json)</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://truepriceenergy.com/get_data</code></p>
-<h2 id='handling-specific-scenarios'>Handling Specific Scenarios</h2><div class="highlight"><pre class="highlight python tab-python"><code>
-<span class="sb">`ERCOT`</span>
-<span class="c1">#Formatted Standardized Data
-</span><span class="n">energy_ercocot_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"ercot"</span><span class="p">,</span><span class="s">"standardized"</span><span class="p">,</span> <span class="s">"latestall"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
-
-<span class="c1"># Unformated Unstandardized Data
-</span><span class="n">energy_ercocot_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"ercot"</span><span class="p">,</span><span class="s">'unstandardized'</span><span class="p">,</span> <span class="s">"intradayonly"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
-
-<span class="sb">`ISO-NE`</span>
-<span class="c1">#Formatted Standardized Data
-</span><span class="n">energy_isone_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"isone"</span><span class="p">,</span><span class="s">"standardized"</span><span class="p">,</span> <span class="s">"latestall"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
-
-<span class="c1"># Unformated Unstandardized Data
-</span><span class="n">energy_isone_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"isone"</span><span class="p">,</span><span class="s">'unstandardized'</span><span class="p">,</span> <span class="s">"intradayonly"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
-
-
-<span class="sb">`NYISO`</span>
-<span class="c1">#Formatted Standardized Data
-</span><span class="n">energy_nyiso_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"nyiso"</span><span class="p">,</span><span class="s">"standardized"</span><span class="p">,</span> <span class="s">"latestall"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
-
-<span class="c1"># Unformated Unstandardized Data
-</span><span class="n">energy_nyiso_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"nyiso"</span><span class="p">,</span><span class="s">'unstandardized'</span><span class="p">,</span> <span class="s">"intradayonly"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
-
-<span class="sb">`MISO`</span>
-<span class="c1">#Formatted Standardized Data
-</span><span class="n">energy_miso_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"miso"</span><span class="p">,</span><span class="s">"standardized"</span><span class="p">,</span> <span class="s">"latestall"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
-
-<span class="c1"># Unformated Unstandardized Data
-</span><span class="n">energy_miso_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"miso"</span><span class="p">,</span><span class="s">'unstandardized'</span><span class="p">,</span> <span class="s">"intradayonly"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
-
-<span class="sb">`PJM`</span>
-<span class="c1">#Formatted Standardized Data
-</span><span class="n">energy_pjm_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"pjm"</span><span class="p">,</span><span class="s">"standardized"</span><span class="p">,</span> <span class="s">"latestall"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
-
-<span class="c1"># Unformated Unstandardized Data
-</span><span class="n">energy_pjm_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"pjm"</span><span class="p">,</span><span class="s">'unstandardized'</span><span class="p">,</span> <span class="s">"intradayonly"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
-
-</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>
-This endpoint retrieves curves based on COB ( Close of Business) Data.
-
-The values for **`idcob`** paramater are : **`lateslall`** &amp; **`intradayonly`**.
-
-
-
-</code></pre></div><h1 id='errors'>Errors</h1>
+<h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
