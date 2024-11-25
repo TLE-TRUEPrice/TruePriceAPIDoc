@@ -329,10 +329,6 @@
                   <li>
                     <a href="#download-data" class="toc-h2 toc-link" data-title="Download Data">Download Data</a>
                   </li>
-              </ul>
-          </li>
-          <li>
-              <ul class="toc-list-h2">
                   <li>
                     <a href="#working-with-multiple-data-types-amp-handling-specific-scenarios" class="toc-h2 toc-link" data-title="Working with Multiple Data Types &amp; Handling Specific Scenarios">Working with Multiple Data Types &amp; Handling Specific Scenarios</a>
                   </li>
@@ -479,7 +475,7 @@ You must replace <code>email & password </code> with your own credentials.
 <td>Format for data retrieval (<strong><code>&quot;csv&quot;</code></strong>,<strong><code>&quot;xlsx&quot;</code></strong>, <strong><code>&quot;json&quot;</code></strong>).</td>
 </tr>
 </tbody></table>
-<h1 id='startdate-2024-01-01'>Startdate : 2024-01-01 ()</h1><h2 id='working-with-multiple-data-types-amp-handling-specific-scenarios'>Working with Multiple Data Types &amp; Handling Specific Scenarios</h2><div class="highlight"><pre class="highlight python tab-python"><code>
+<h2 id='working-with-multiple-data-types-amp-handling-specific-scenarios'>Working with Multiple Data Types &amp; Handling Specific Scenarios</h2><div class="highlight"><pre class="highlight python tab-python"><code>
 <span class="sb">`ERCOT`</span>
 <span class="c1">#Formatted Standardized Data
 </span><span class="n">energy_ercocot_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"ercot"</span><span class="p">,</span><span class="s">"standardized"</span><span class="p">,</span> <span class="s">"latestall"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
