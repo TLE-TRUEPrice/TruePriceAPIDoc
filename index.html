@@ -329,6 +329,11 @@
                   <li>
                     <a href="#download-data" class="toc-h2 toc-link" data-title="Download Data">Download Data</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#startdate-2024-01-01" class="toc-h1 toc-link" data-title="Startdate : 2024-01-01 ()">Startdate : 2024-01-01 ()</a>
+              <ul class="toc-list-h2">
                   <li>
                     <a href="#working-with-multiple-data-types-amp-handling-specific-scenarios" class="toc-h2 toc-link" data-title="Working with Multiple Data Types &amp; Handling Specific Scenarios">Working with Multiple Data Types &amp; Handling Specific Scenarios</a>
                   </li>
@@ -440,7 +445,7 @@ You must replace <code>email & password </code> with your own credentials.
 </tr>
 <tr>
 <td><strong><code>start_date</code></strong></td>
-<td>Start date in <strong><code>YYYY-MM-DD</code></strong> format.</td>
+<td>Start date in <strong><code>YYYY-MM-DD</code></strong>  -format ( Earliest Available Start Date is from 2024-01-01 )</td>
 </tr>
 <tr>
 <td><strong><code>end_date</code></strong></td>
@@ -448,7 +453,7 @@ You must replace <code>email & password </code> with your own credentials.
 </tr>
 <tr>
 <td><strong><code>operating_day</code></strong></td>
-<td>The operating day for which data is required (optional).  <strong><code>YYYY-MM-DD</code></strong> format.</td>
+<td>The operating day for which data is required (optional).  <strong><code>YYYY-MM-DD</code></strong> format. (Earliest Available Operating Day is from 2024-01-01)</td>
 </tr>
 <tr>
 <td><strong><code>operating_day_end</code></strong></td>
@@ -456,11 +461,11 @@ You must replace <code>email & password </code> with your own credentials.
 </tr>
 <tr>
 <td><strong><code>curve</code></strong></td>
-<td>Type of curve (e.g., <code>&quot;energy&quot;</code>).</td>
+<td>Type of curve (<strong>Available Datatypes:</strong> <strong><code>&quot;energy&quot;</code></strong>, <strong><code>&quot;non-energy&quot;</code></strong>, <strong><code>&quot;ptc&quot;</code></strong>, <strong><code>&quot;matrix&quot;</code></strong>, <strong><code>&quot;rec&quot;</code></strong>).</td>
 </tr>
 <tr>
 <td><strong><code>iso</code></strong></td>
-<td>ISO specification (e.g., <code>&quot;ercot&quot;</code>, <code>&quot;nyiso&quot;</code>).</td>
+<td>ISO specification ( <strong>Available ISO&#39;s</strong> : <strong><code>&quot;ercot&quot;</code></strong>, <strong><code>&quot;nyiso&quot;</code></strong>, <strong><code>&quot;miso&quot;</code></strong>, <strong><code>&quot;pjm&quot;</code></strong>, <strong><code>&quot;isone&quot;</code></strong>).</td>
 </tr>
 <tr>
 <td><strong><code>strip</code></strong></td>
@@ -472,10 +477,10 @@ You must replace <code>email & password </code> with your own credentials.
 </tr>
 <tr>
 <td><strong><code>type</code></strong></td>
-<td>Format for data retrieval (<code>&quot;csv&quot;</code>,<code>xlsx</code>, <code>&quot;json&quot;</code>).</td>
+<td>Format for data retrieval (<strong><code>&quot;csv&quot;</code></strong>,<strong><code>&quot;xlsx&quot;</code></strong>, <strong><code>&quot;json&quot;</code></strong>).</td>
 </tr>
 </tbody></table>
-<h2 id='working-with-multiple-data-types-amp-handling-specific-scenarios'>Working with Multiple Data Types &amp; Handling Specific Scenarios</h2><div class="highlight"><pre class="highlight python tab-python"><code>
+<h1 id='startdate-2024-01-01'>Startdate : 2024-01-01 ()</h1><h2 id='working-with-multiple-data-types-amp-handling-specific-scenarios'>Working with Multiple Data Types &amp; Handling Specific Scenarios</h2><div class="highlight"><pre class="highlight python tab-python"><code>
 <span class="sb">`ERCOT`</span>
 <span class="c1">#Formatted Standardized Data
 </span><span class="n">energy_ercocot_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="s">"2000-01-01"</span><span class="p">,</span> <span class="s">"9999-12-31"</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"energy"</span><span class="p">,</span> <span class="s">"ercot"</span><span class="p">,</span><span class="s">"standardized"</span><span class="p">,</span> <span class="s">"latestall"</span><span class="p">,</span> <span class="s">"csv"</span><span class="p">)</span>
@@ -518,10 +523,6 @@ You must replace <code>email & password </code> with your own credentials.
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://truepriceenergy.com/get_data</code></p>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
 <p>The TruePrice API uses the following error codes:</p>
 
 <table><thead>
